@@ -1,0 +1,17 @@
+
+
+
+.teamMemberSummaryContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.teamMemberFields{
+    color: white;
+    padding: 6px 6px 6px 6px; 
+    height: 40px;
+    width: 160px;
+    margin-right: 2px;
+    margin-top: 2px;
+}

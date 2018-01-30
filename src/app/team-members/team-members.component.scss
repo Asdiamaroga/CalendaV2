@@ -1,0 +1,50 @@
+
+
+
+
+.flexContainer {
+    margin-top: 36px;
+    display: flex;
+}
+
+.tableWidth {
+    width: 40%;
+    margin-right: 40px;
+}
+
+.membersWidth {
+    width: 60%;
+}
+
+.highlightRow{
+    background: rgba(157, 78, 180, 0.5);
+}
+
+.teamMemberFieldsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.colorInputStyle {
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-top-width: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-bottom-width: 0px;
+    width: 40px;
+}
+
+.buttonStyle {
+    margin-top: 20px;
+    width: 160px;
+}
+
+
+.buttonBar {
+    margin-top: 10px;
+}
+
+.bufferContainer {
+    margin-top: 40px;
+}

@@ -1,0 +1,19 @@
+<mat-toolbar role="toolbar" color="primary">
+    <i class="material-icons">perm_contact_calendar</i>
+    <span>Calendar V2 - beta</span>
+    <span>&nbsp;</span>
+    <button mat-icon-button>
+        <i class="material-icons">info_outline</i>
+    </button>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+    <button mat-icon-button *ngIf="isUserLoggedIn" (click)="toggleMenu()">
+        <i class="material-icons md-36">menu</i>
+    </button>
+
+    <span class="fill-remaining-space"></span>
+
+    <button mat-raised-button *ngIf="isUserLoggedIn" (click)="logUserOut()">
+        <i class="material-icons md-dark">exit_to_app</i>
+    </button>
+</mat-toolbar>

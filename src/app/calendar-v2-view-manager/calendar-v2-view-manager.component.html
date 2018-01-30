@@ -1,0 +1,41 @@
+
+<div class="calnedarViewContainer">
+    
+    <div class="flexContainer">
+        <div class="labelTextStyle">
+          {{ viewDate | calendarDate:(view + 'ViewTitle'):locale }}
+        </div>
+
+        <div class="">
+            <button mat-raised-button
+                    mwlCalendarPreviousView
+                    [view]="view"
+                    [(viewDate)]="viewDate"
+                    (viewDateChange)="viewDateChange.next(viewDate)">&#8656;</button>
+            <button mat-raised-button
+                    mwlCalendarToday
+                    [(viewDate)]="viewDate"
+                    (viewDateChange)="viewDateChange.next(viewDate)">Current Date</button>
+            <button mat-raised-button
+                    mwlCalendarNextView
+                    [view]="view"
+                    [(viewDate)]="viewDate"
+                    (viewDateChange)="viewDateChange.next(viewDate)">&#8658;</button>
+        </div>
+
+        <div class="">
+            <button mat-raised-button
+                    [class.active]="view ==='month'"
+                    (click)="viewChange.emit('month')">Month</button>
+            <button mat-raised-button
+                    [class.active]="view ==='week'"
+                    (click)="viewChange.emit('week')">Week</button>
+            <button mat-raised-button
+                    [class.active]="view ==='day'"
+                    (click)="viewChange.emit('day')">Day</button>
+        </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+</div>

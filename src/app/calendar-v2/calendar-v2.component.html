@@ -1,0 +1,46 @@
+
+
+<div class="contentSpacing" [@fallIn]="state">
+        <mat-card>
+                <div>
+                    <calendar-v2-view-manager [(view)]="view" [(viewDate)]="viewDate"></calendar-v2-view-manager>
+                </div>
+                <div class="baseContainer4">
+                        <div [ngSwitch]="view">
+                            <mwl-calendar-month-view
+                              *ngSwitchCase="'month'"
+                              [viewDate]="viewDate"
+                              [events]="events"
+                              [activeDayIsOpen]="true"
+                              [refresh]="refresh"
+                              (eventTimesChanged)="eventTimesChanged($event)">
+                            </mwl-calendar-month-view>
+                            <mwl-calendar-week-view
+                              *ngSwitchCase="'week'"
+                              [viewDate]="viewDate"
+                              [events]="events"
+                              [refresh]="refresh"
+                              (eventTimesChanged)="eventTimesChanged($event)">
+                            </mwl-calendar-week-view>
+                            <mwl-calendar-day-view
+                              *ngSwitchCase="'day'"
+                              [viewDate]="viewDate"
+                              [events]="events"
+                              [refresh]="refresh"
+                              (eventTimesChanged)="eventTimesChanged($event)">
+                            </mwl-calendar-day-view>
+                        </div>
+                    </div>
+
+        </mat-card>
+
+</div>
+
+<div class="contentSpacing" [@fallInSlow]="state">
+    <mat-card>
+        <mat-card-title>Team members summary</mat-card-title>
+        <app-team-members-summary></app-team-members-summary>
+    </mat-card>
+</div>
+
+<div class="contentSpacing" [@fallInSlow]="state"></div>

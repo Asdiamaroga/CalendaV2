@@ -1,0 +1,74 @@
+
+<div class="contentSpacing" [@fallIn]="state">
+    <mat-card>
+            <mat-card-title>
+                Team Members panel
+            </mat-card-title>
+            <mat-divider></mat-divider>
+    </mat-card>
+
+    <div class="flexContainer">
+        <div class="tableWidth">
+            <mat-card>
+                <mat-table #table [dataSource]="dataSource">
+                        <ng-container matColumnDef="name">
+                            <mat-header-cell *matHeaderCellDef> Name. </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{ element.data.name }} </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="surname">
+                                <mat-header-cell *matHeaderCellDef> Surname. </mat-header-cell>
+                                <mat-cell *matCellDef="let element"> {{ element.data.surName }} </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="color">
+                                <mat-header-cell *matHeaderCellDef> Color. </mat-header-cell>
+                                <mat-cell *matCellDef="let element"> 
+                                        <input
+                                            [style.background]="element.data.color.primary"
+                                            disabled
+                                            class="colorInputStyle"/>
+                                </mat-cell>
+                        </ng-container>
+
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;" 
+                                [class.highlightRow]="selectedRowIndex == row.id"
+                                (click)="selectRow(row);highLightRow(row)"></mat-row>
+                </mat-table>
+                <div *ngIf="!dataSource" class="bufferContainer">
+                    <mat-progress-bar mode="buffer"></mat-progress-bar>
+                </div>
+            </mat-card>
+        </div>
+        <div class="membersWidth">
+            <mat-card>
+                    <div class="teamMemberFieldsContainer">
+                        <mat-form-field class="inputWidth">
+                                <input matInput placeholder="Name" [(ngModel)]="memberName">
+                        </mat-form-field>
+                        <mat-form-field class="inputWidth">
+                                <input matInput placeholder="Surname" [(ngModel)]="memberSurName">
+                        </mat-form-field>
+                        
+                        <input #ignoredInput class="colorInputStyle" 
+                                            [(colorPicker)]="memberColor"
+                                            [style.background]="memberColor"
+                                            [cpIgnoredElements]="[ignoredButton, ignoredInput]"
+                                            [(cpToggle)]="toggle"
+                                            class="colorInputStyle"/>
+                        <button #ignoredButton
+                                class="buttonStyle"  
+                                mat-raised-button 
+                                color="primary" 
+                                (click)="toggle=!toggle">Choose Color</button>
+                        
+                        <div class="buttonBar">
+                                <button mat-raised-button color="primary" (click)="saveOrUpdate()"> Save </button>
+                                <button mat-raised-button color="primary" (click)="deleteMember()"> Delete </button>
+                        </div>
+                    </div>
+            </mat-card>
+        </div>
+    </div>
+</div>

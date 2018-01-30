@@ -1,0 +1,11 @@
+
+
+
+<div class="teamMemberSummaryContainer">
+      <div *ngFor="let member of plainTeamMembers" [style.background]="member.color.primary" class="teamMemberFields">
+          {{ member.name }} {{ member.surName }}
+      </div>
+</div>
+<div *ngIf="!plainTeamMembers">
+    <mat-progress-bar mode="buffer"></mat-progress-bar>
+</div>
